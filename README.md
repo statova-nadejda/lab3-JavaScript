@@ -20,8 +20,12 @@
 
 Проект состоит из трех файлов:
 
-1. `classes.js` - реализация классов `Item` и `Weapon`.
-2. `functionConstructors.js` - реализация `Item` и `Weapon` через функции-конструкторы.
+1. `classes` - папка для классов.
+   - `Item.js` - реализация класса Item
+   - `Weapon.js` - реализация класса Weapon
+2. `functionConstructors` - папка для функций-конструкторов.
+   - `ItemFunction` - реализация функции-конструктора ItemFunction
+   - `WeaponFunction` - реализация функции-конструктора WeaponFunction
 3. `main.js` - тестирование обеих реализаций.
 
 ## Шаг 1: Создание класса Item
@@ -31,6 +35,7 @@
 - `name` – название предмета.
 - `weight` – вес предмета. 
 - `rarity` – редкость предмета (common, uncommon, rare, legendary). Для того, чтобы `rarity` могло принимать только 4 разных параметра, создаем отдельную переменную, где пропишем варианты и в конструкторе будем проверять ввод пользователья на соответствие с вариантами.
+
 ```JavaScript
 if (!Object.values(rarityPossibleVal).includes(rarity)) {
             throw new Error("Ошибка! Выберите допустимое значение для rarity (common, uncommon, rare, legendary)");
@@ -40,6 +45,7 @@ if (!Object.values(rarityPossibleVal).includes(rarity)) {
 ### Конструктор: 
 
 Принимает параметры `name`, `weight`, `rarity` и присваивает значения соответствующим переменным. В случае ввода отрицательного числа в поле `weight` и не предусмотренное `rarity`, будет выводится соответствующая ошибка.
+
 ```JavaScript 
 constructor(name, weight, rarity) {
         this.itemName = name;
@@ -134,6 +140,7 @@ bow.repair(); //Восттановим прочность до 100
 ```
 
 ### Тестирование функций-конструкторов:
+В файле `main.js` тестируем все функции-конструкторы, создавая объекты и изменяя и их свойства
 
 ```javascript
 const sword1 = new Item("Steel Sword", 3.5, "rare");
@@ -145,6 +152,8 @@ console.log(bow1.durability);
 bow1.repair();
 console.log(bow1.durability);
 ```
+![Тестирование1](photos/screen1.png);
+![Тестирование2](photos/screen2.png)ж
 
 ## Шаг 4: Дополнительное задание
 
